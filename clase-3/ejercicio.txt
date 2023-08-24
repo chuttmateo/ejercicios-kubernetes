@@ -1,0 +1,2 @@
+Crea un clúster de Kubernetes utilizando Minikube.
+Despliega una aplicación de React en el clúster.
