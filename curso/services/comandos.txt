@@ -1,0 +1,22 @@
+NodePort: Abre un puerto en cada nodo del clúster y redirige el tráfico a los pods seleccionados. 
+Los servicios de tipo NodePort permiten que los servicios sean accesibles desde fuera 
+del clúster a través de la dirección IP de cualquier nodo y el puerto especificado.
+
+    kubectl get pods -o wide 
+    kubectl get ep
+    kubectl get nodes -o wide   | obtengo, entre otras cosas, la ip del nodo
+    minikube service -n demo service-web --url  | obtengo la url del service
+
+
+ClusterIP: Descripción: Crea una IP virtual interna que solo es accesible desde dentro del 
+clúster. Es ideal para servicios que solo deben ser accesibles internamente 
+y no desde el exterior del clúster.
+
+    kubectl port-forward service/cluster-ip 5173:80
+
+LoadBalancer: Proporciona un equilibrador de carga externo (como un balanceador de carga de nube)
+que distribuye el tráfico a los nodos y, por lo tanto, a los pods del clúster. 
+Este tipo de servicio es útil cuando estás ejecutando Kubernetes en una nube pública 
+y deseas exponer tu servicio a través de una IP pública.
+
+    
