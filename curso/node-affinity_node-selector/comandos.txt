@@ -1,0 +1,44 @@
+-- Comandos para nodos:
+Aplicar label a un nodo:
+
+    kubectl label node minikube-m02 size=large
+
+Eliminar un label de un nodo:
+
+    kubectl label node minikube-m02 size-
+
+
+-- Node Affinity:
+La afinidad de nodos es una característica que permite especificar reglas o restricciones 
+sobre qué nodos del clúster son elegibles para ejecutar ciertos pods. 
+Puedes usar afinidad de nodos para indicar preferencias o requisitos en función de etiquetas 
+(labels) de nodos. La afinidad de nodos se divide en dos tipos:
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: size
+          operator: In
+          values:
+          - large
+
+
+
+-- Node Selector:
+El selector de nodos es una característica más sencilla que te permite seleccionar 
+nodos específicos para programar tus pods en función de etiquetas de nodos. 
+Puedes asignar etiquetas (labels) a los nodos del clúster y luego especificar un selector de nodos 
+en la definición de un pod para indicar en qué nodos debe ejecutarse.
+
+nodeSelector:
+    size: large
+(Si no hay ningún nodo con esas labels el estado del pod va a quedar en pending para siempre.)
+
+
+
+
+
+
+
