@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  rollout-rollback
+  namespace: demo
+spec:
+  selector:
+    matchLabels:
+      app: roll-pod
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app:  roll-pod
+    spec:
+      containers:
+      - name:  app-container
+        image:  nginx:alpine3.18

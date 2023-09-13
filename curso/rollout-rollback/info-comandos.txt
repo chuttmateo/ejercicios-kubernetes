@@ -1,0 +1,19 @@
+Un "rollout" se refiere al proceso de implementar una nueva versión de una aplicación 
+o realizar cambios en la configuración de la aplicación existente en un clúster de Kubernetes. 
+Los recursos de Kubernetes, como los Deployments, permiten realizar rollouts de manera 
+controlada y escalable.
+
+
+
+
+
+
+
+Un "rollback" es el proceso de regresar a una versión anterior de una aplicación o a una 
+configuración anterior después de un rollout, generalmente debido a problemas o errores inesperados.
+
+    ver el historial del deployment
+    kubectl rollout history deploy rollout-rollback
+
+    hacer un rollback
+    kubectl rollout undo deploy rollout-rollback
