@@ -1,0 +1,32 @@
+-- Requests
+Sirve para reservar una cantidad de memoria RAM y/o CPU para los PODS
+
+-- Limits 
+Sirve para limitar el consumo de memoria RAM y/o CPU de los PODS
+
+-- LimitRange
+Sirve para poner limites a nivel de namespace
+
+--Resource Quota
+son un mecanismo que permite limitar y asignar de manera controlada los recursos de CPU, 
+memoria y número de objetos a los diferentes namespaces (espacios de nombres) 
+en un clúster de Kubernetes
+
+todo OK:
+ este error me da si quiero crear un pod en el namespace "limitado":
+  
+  mateo@mateo-MS-7641:~/proyectos/personales/ejercicios-kubernetes/curso/request-limits$ k apply -f request-limits.yml 
+  Error from server (Forbidden): error when creating "request-limits.yml": pods "request-limits-pod" is forbidden: [maximum cpu usage per Container is 125m, but limit is 200m, maximum memory usage per Container is 128Mi, but limit is 500Mi]
+ 
+ debido al LimitRange que he creado
+
+
+Comandos:
+    kubectl get limitrange -A
+
+    kubectl describe limitrange container-limit -n limitado
+
+  Resource Quota:
+
+    kubectl get resourcequota
+    kubectl describe resourcequota quota-name

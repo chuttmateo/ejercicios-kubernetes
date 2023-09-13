@@ -1,0 +1,22 @@
+# LimitRange for Pod or Container
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: container-limit
+  namespace: limitado
+spec:
+  limits:
+  # 'default' and 'defaultRequest' may not be specified when type is 'Pod'
+  - type: Container
+    #default: #Limite por defecto si no se especifica en el manifiesto
+    #  cpu: 100m  
+    #  memory: 512Mi
+    #defaultRequest: #Request por defecto si no se especifica por defecto en el manifiesto
+    #  cpu: 100m  
+    #  memory: 256Mi
+    max:
+      cpu: 125m
+      memory: 128Mi
+    min:
+      cpu: 50m
+      memory: 64Mi
